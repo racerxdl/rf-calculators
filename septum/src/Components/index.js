@@ -3,7 +3,9 @@
  */
 
 import SeptumCalculator from './SeptumCalculator';
+import GoogleAnalytics from './GoogleAnalytics';
 
 export {
   SeptumCalculator,
+  GoogleAnalytics,
 }

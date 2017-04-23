@@ -1,5 +1,7 @@
 /**
  * Created by Lucas Teske on 21/04/17.
+ * Based on OK1DFC Spreadsheet Formulas
+ * http://www.ok1dfc.com/eme/emeweb.htm
  */
 
 const lambdaA = 0.338;
@@ -41,6 +43,8 @@ export class Calculator {
         H: Calculator.TrimFloat(waveLength * lambdaH, decimalPoints),
         I: Calculator.TrimFloat(waveLength * lambdaI, decimalPoints),
         J: Calculator.TrimFloat(waveLength * lambdaJ, decimalPoints),
+        K: Calculator.TrimFloat(waveLength * lambdaFeedSeptum, decimalPoints),
+        L: Calculator.TrimFloat(waveLength * lambdaFeedRear, decimalPoints),
       },
       distanceOutputToSeptum: Calculator.TrimFloat(waveLength * lambdaFeedSeptum, decimalPoints),
       distanceFeedToRearWall: Calculator.TrimFloat(waveLength * lambdaFeedRear, decimalPoints),

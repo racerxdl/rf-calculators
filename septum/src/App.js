@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import logo from './logo.svg';
 import './App.css';
 
 import {
   SeptumCalculator,
+  GoogleAnalytics,
 } from './Components';
 
 const logoDivStyle = {
@@ -16,14 +18,19 @@ const logoDivStyle = {
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider>
-      <div className="App">
-        <div style={logoDivStyle}>
-          <img src={logo} alt="logo" />
+      <div>
+        <MuiThemeProvider>
+        <AppBar title="Septum Feed Calculator" />
+        </MuiThemeProvider>
+        <MuiThemeProvider>
+        <div className="App">
+          <div style={logoDivStyle}>
+            <img src={logo} alt="logo" />
+          </div>
+          <SeptumCalculator/>
         </div>
-        <SeptumCalculator/>
+        </MuiThemeProvider>
       </div>
-      </MuiThemeProvider>
     );
   }
 }

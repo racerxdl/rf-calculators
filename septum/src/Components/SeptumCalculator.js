@@ -14,6 +14,12 @@ const calculatorBlockStyle = {
   margin: "auto"
 };
 
+const headCalcStyle = {
+  width: 1000,
+  height: 80,
+  margin: "auto"
+};
+
 const rowStyle = {
   height: 20
 };
@@ -25,6 +31,17 @@ const tableStyle = {
 const paramColumnStyle = {
   width: 40,
   textAlign: "center"
+};
+
+const calcParamsStyle = {
+  float: 'left',
+  width: 600,
+  fontSize: 12,
+};
+
+const credtDivStyle = {
+  float: 'left',
+  width: 400
 };
 
 const tableDivStyle = {
@@ -69,9 +86,9 @@ export default class SeptumCalculator extends Component {
     const tableData2 = [];
 
     tableData.forEach((val, i) => {
-      if (i < 5) {
+      if (i < 6) {
         tableData0.push(val);
-      } else if (i < 10) {
+      } else if (i < 12) {
         tableData1.push(val);
       } else {
         tableData2.push(val);
@@ -95,11 +112,19 @@ export default class SeptumCalculator extends Component {
     this.calculate();
     return (
       <div className="SeptumCalculator">
-        <div>
-          Frequency: <TextField id="frequency" onChange={this.handleFrequencyChange} hintText={this.state.frequency}/> MHz
-        </div>
-        <div>
-          Wave Length: <TextField id="wavelength" value={this.state.results.waveLength}/> mm
+        <div style={headCalcStyle}>
+          <div style={calcParamsStyle}>
+            <div>
+              Frequency: <TextField id="frequency" onChange={this.handleFrequencyChange} hintText={this.state.frequency}/> MHz
+            </div>
+            <div>
+              Wave Length: <TextField id="wavelength" value={this.state.results.waveLength}/> mm
+            </div>
+          </div>
+          <div style={credtDivStyle}>
+            <p>WebUI made by <a href="https://twitter.com/lucasteske">Lucas Teske</a></p>
+            <p>Based on <a href="http://www.ok1dfc.com/eme/emeweb.htm">OK1DFC Spreadsheet Formulas</a></p>
+          </div>
         </div>
         <p/>
         <div id="calculatorBlock" style={calculatorBlockStyle}>
@@ -151,6 +176,12 @@ export default class SeptumCalculator extends Component {
           </div>
           <div id="imageBlock" className="imageBlock" style={imageDivStyle}>
             <img src={septum} width="400"/>
+            <div style={{textAlign: 'left', fontSize: 10}}>
+              <p>Probe Length:  <b>{this.state.results.feedSize} mm</b></p>
+              <p>Septum Thickness: {this.state.results.septumThickness} mm <i>(Not Critical)</i></p>
+              <p>K = Distance from Feed Output to Septum</p>
+              <p>L = Distance from Probe to Rear Wall</p>
+            </div>
           </div>
         </div>
       </div>
